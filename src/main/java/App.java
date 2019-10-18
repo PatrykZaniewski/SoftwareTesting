@@ -27,7 +27,6 @@ public class App {
 
         ArrayList<Driver> drivers = new ArrayList<>();
         drivers.add(driver);
-        //System.out.println(drivers.get(0).getName());
         team.setDrivers(drivers);
 
         session.persist(team);
