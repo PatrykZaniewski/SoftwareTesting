@@ -24,6 +24,9 @@ public class Driver {
     @JoinColumn(name = "team_id")
     private Team team;
 
+    @OneToOne(mappedBy = "driver", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private DriverDetails driverDet;
+
     public Team getTeam() {
         return team;
     }
@@ -62,5 +65,13 @@ public class Driver {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public DriverDetails getDriverDet() {
+        return driverDet;
+    }
+
+    public void setDriverDet(DriverDetails driverDet) {
+        this.driverDet = driverDet;
     }
 }

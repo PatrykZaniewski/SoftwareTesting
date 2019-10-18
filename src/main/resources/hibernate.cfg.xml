@@ -10,8 +10,9 @@
         <property name="connection.password">root</property>
         <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hbm2ddl.auto">create</property>
         <mapping class="Entity.Driver"/>
         <mapping class="Entity.Team"/>
+        <mapping class="Entity.DriverDetails"/>
     </session-factory>
 </hibernate-configuration>

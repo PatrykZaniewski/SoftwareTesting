@@ -1,7 +1,6 @@
 package Entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +21,7 @@ public class Team {
     @Column(name = "yearOfCreation")
     private int yearOfCreation;
 
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "team", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Driver> drivers;
 
     public int getId() {
