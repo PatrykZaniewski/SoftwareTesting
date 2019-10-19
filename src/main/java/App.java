@@ -53,9 +53,34 @@ public class App {
 
         //READ
         session = sessionFactory.openSession();
-        session.beginTransaction();
-        team = session.load(Team.class, 1);
+        transaction = session.beginTransaction();
+        team = session.get(Team.class, 1);
         System.out.println(team.getDrivers().get(0).getName());
+        transaction.commit();
+        session.close();
 
+        //UPDATE
+        session = sessionFactory.openSession();
+        transaction = session.beginTransaction();
+        team = session.get(Team.class, 1);
+        team.setCups(1);
+        session.saveOrUpdate(team);
+        transaction.commit();
+        session.close();
+
+        //DELETE
+        session = sessionFactory.openSession();
+        transaction = session.beginTransaction();
+        team = session.get(Team.class, 1);
+        if(team != null)
+        {
+            for (Driver driverToChange : team.getDrivers())
+            {
+                driverToChange.setTeam(null);  //Nie podoba mi się to rozwiązanie. Nie wiem czy źle hibernate skonfigurowałem, ale może być też tak, że po prostu inaczej się nie da
+            }
+            session.remove(team);
+        }
+        transaction.commit();
+        session.close();
     }
 }
