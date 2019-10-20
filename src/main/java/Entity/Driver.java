@@ -86,6 +86,6 @@ public class Driver {
 
         Driver driver = (Driver) o;
 
-        return (this.id == driver.id && this.name.equals(driver.name) && this.surname.equals(driver.surname));
+        return (this.name.equals(driver.name) && this.surname.equals(driver.surname));
     }
 }

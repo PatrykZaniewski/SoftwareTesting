@@ -85,6 +85,6 @@ public class Team {
 
         Team team = (Team) o;
 
-        return (this.name.equals(team.name) && this.id == team.id);
+        return (this.name.equals(team.name));
     }
 }
