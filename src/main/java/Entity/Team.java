@@ -73,4 +73,18 @@ public class Team {
                 ", yearOfCreation=" + yearOfCreation +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if(o == null || o.getClass()!= this.getClass()) {
+            return false;
+        }
+
+        Team team = (Team) o;
+
+        return (this.name.equals(team.name) && this.id == team.id);
+    }
 }
