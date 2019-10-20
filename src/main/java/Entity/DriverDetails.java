@@ -74,4 +74,18 @@ public class DriverDetails {
     public void setDriver(Driver driver) {
         this.driver = driver;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if(o == null || o.getClass()!= this.getClass()) {
+            return false;
+        }
+
+        DriverDetails driverDetails = (DriverDetails) o;
+
+        return (this.id == driverDetails.id);
+    }
 }
