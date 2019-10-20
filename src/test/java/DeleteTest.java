@@ -56,7 +56,7 @@ public class DeleteTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        driver = session.get(Driver.class, 1);
+        Driver driver = session.get(Driver.class, 1);
 
         assertNotEquals(driver, toDeleteDriver);
         session.close();
@@ -66,9 +66,9 @@ public class DeleteTest {
     public void testDeleteTeam() {
         //GIVEN
         Team toDeleteTeam = new Team();
-        testTeam.setName("DeleteTeam");
-        testTeam.setCups(32);
-        testTeam.setYearOfCreation(1994);
+        toDeleteTeam.setName("DeleteTeam");
+        toDeleteTeam.setCups(32);
+        toDeleteTeam.setYearOfCreation(1994);
         session.persist(toDeleteTeam);
 
         Team testTeam = new Team();
