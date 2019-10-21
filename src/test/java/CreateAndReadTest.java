@@ -53,9 +53,9 @@ public class CreateAndReadTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        Driver driver1 = session.get(Driver.class, 1);
-        Driver driver2 = session.get(Driver.class, 2);
-        Driver driver3 = session.get(Driver.class, 3);
+        Driver driver1 = session.get(Driver.class, 5);
+        Driver driver2 = session.get(Driver.class, 6);
+        Driver driver3 = session.get(Driver.class, 7);
 
         transaction.commit();
         session.close();
@@ -70,7 +70,7 @@ public class CreateAndReadTest {
         //GIVEN WHEN
         Team nullTeam = session.get(Team.class, 1);
         Driver nullDriver = session.get(Driver.class, 1);
-        DriverDetails nullDetails = session.get(DriverDetails.class, 1);
+        DriverDetails nullDetails = session.get(DriverDetails.class, 100);
 
         //THEN
         assertNull(nullTeam);
@@ -94,7 +94,7 @@ public class CreateAndReadTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        Driver driver = session.get(Driver.class, 6);
+        Driver driver = session.get(Driver.class, 5);
 
         Driver newTestDriver = new Driver();
         newTestDriver.setName("Robert");
@@ -124,7 +124,7 @@ public class CreateAndReadTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        Team team = session.get(Team.class, 1);
+        Team team = session.get(Team.class, 6);
 
         Team newTestTeam = new Team();
         newTestTeam.setName("McLaren");
@@ -173,7 +173,7 @@ public class CreateAndReadTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        Team team = session.get(Team.class, 3);
+        Team team = session.get(Team.class, 8);
         Driver driver = team.getDrivers().get(0);
         DriverDetails details = driver.getDriverDet();
         transaction.commit();
@@ -235,7 +235,7 @@ public class CreateAndReadTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        Team teamWrong = session.get(Team.class, 2);
+        Team teamWrong = session.get(Team.class, 7);
         transaction.commit();
 
         assertNotEquals(teamWrong, testRightTeam);

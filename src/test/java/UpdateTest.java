@@ -58,7 +58,7 @@ public class UpdateTest {
         //WHEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        Driver driver = session.get(Driver.class,1);
+        Driver driver = session.get(Driver.class,3);
 
         String newName = "DaniUpdated";
         String newSurname = "MalyszUpdated";
@@ -74,7 +74,7 @@ public class UpdateTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        driver = session.get(Driver.class,1);
+        driver = session.get(Driver.class,3);
         assertEquals(driver.getName(), newName);
         assertEquals(driver.getSurname(), newSurname);
         assertEquals(driver.getPoints(), newPoints);
@@ -159,7 +159,7 @@ public class UpdateTest {
         //WHEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        Team team = session.get(Team.class,1);
+        Team team = session.get(Team.class,3);
 
         String newName = "FewawwiUpdated";
         int newCups = 99;
@@ -175,7 +175,7 @@ public class UpdateTest {
         //THEN
         session = sessionFactory.openSession();
         transaction = session.beginTransaction();
-        team = session.get(Team.class,1);
+        team = session.get(Team.class,3);
         assertEquals(team.getName(), newName);
         assertEquals(team.getCups(), newCups);
         assertEquals(team.getYearOfCreation(), newYearOfCreation);
