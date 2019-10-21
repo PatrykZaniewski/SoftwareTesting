@@ -76,11 +76,12 @@ public class App {
         {
             for (Driver driverToChange : team.getDrivers())
             {
-                driverToChange.setTeam(null);  //Nie podoba mi się to rozwiązanie. Nie wiem czy źle hibernate skonfigurowałem, ale może być też tak, że po prostu inaczej się nie da
+                driverToChange.setTeam(null);
             }
             session.remove(team);
         }
         transaction.commit();
         session.close();
     }
+
 }
